@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem, ListItemText, IconButton, Box } from '@mui/material';
+import { List, ListItem, ListItemText, IconButton, Box, Typography } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Post } from '../../interfaces/Post';
