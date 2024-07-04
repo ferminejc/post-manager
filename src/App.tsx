@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { Container, Typography, CircularProgress, Box } from '@mui/material';
+import { usePostContext } from './context/PostContext';
+import { fetchPosts } from './context/PostActions';
+import PostForm from './components/PostForm/PostForm';
+import PostList from './components/PostList/PostList';
+import { Post } from './interfaces/Post';
 
-function App() {
+const App: React.FC = () => {
+  const { state, dispatch } = usePostContext();
+  const { loading, error } = state;
+  const [currentPost, setCurrentPost] = useState<Post>({ title: '', body: '' });
+
+  useEffect(() => {
+    fetchPosts(dispatch);
+  }, [dispatch]);
+
+  const handleEditPost = (post: Post) => {
+    setCurrentPost(post);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Typography variant="h4" component="h1" gutterBottom>
+        Post Manager
+      </Typography>
+      {loading ? (
+        <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+          <CircularProgress />
+        </Box>
+      ) : error ? (
+        <Typography>Error: {error}</Typography>
+      ) : (
+        <>
+          <PostForm initialPost={currentPost} />
+          <PostList onEdit={handleEditPost} />
+        </>
+      )}
+    </Container>
   );
-}
+};
 
 export default App;
