@@ -19,31 +19,6 @@ This is a simple React application for managing posts using CRUD (Create, Read, 
 - Axios
 - Context API and useReducer for state management
 
-## Project Structure
-src/
-├── components/
-│ ├── PostForm/
-│ │ ├── PostForm.tsx
-│ │ └── PostForm.styles.ts
-│ ├── PostList/
-│ │ ├── PostList.tsx
-│ │ └── PostList.styles.ts
-│ └── PostItem/
-│ ├── PostItem.tsx
-│ └── PostItem.styles.ts
-├── context/
-│ ├── PostContext.tsx
-│ ├── PostReducer.ts
-│ └── PostActions.ts
-├── hooks/
-│ └── usePosts.ts
-├── interfaces/
-│ └── Post.ts
-├── services/
-│ └── postService.ts
-├── App.tsx
-└── index.tsx
-
 ## Getting Started
 
 ### Prerequisites
@@ -55,7 +30,7 @@ src/
 
 1. Clone the repository:
    ```bash
-   git clone https://gitlab.com/jcfermin-portfolio/reactjs/post-manager.git
+   git clone https://github.com/ferminejc/post-manager.git
    cd post-manager
 
 2. Install dependencies:
