@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem, ListItemText, IconButton } from '@mui/material';
+import { List, ListItem, ListItemText, IconButton, Box } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Post } from '../../interfaces/Post';
@@ -31,7 +31,10 @@ const PostList: React.FC<PostListProps> = ({ onEdit }) => {
             </IconButton>
           </>
         }>
-          <ListItemText primary={post.title} secondary={post.body} />
+          <Box display="flex" flexDirection="column">
+            <ListItemText primary={`ID: ${post.id}`} />
+            <ListItemText primary={post.title} secondary={post.body} />
+          </Box>
         </ListItem>
       ))}
     </List>

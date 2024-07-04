@@ -8,7 +8,7 @@ import { Post } from './interfaces/Post';
 
 const App: React.FC = () => {
   const { state, dispatch } = usePostContext();
-  const { loading, error } = state;
+  const { posts, loading, error } = state;
   const [currentPost, setCurrentPost] = useState<Post>({ title: '', body: '' });
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const App: React.FC = () => {
           <CircularProgress />
         </Box>
       ) : error ? (
-        <Typography>Error: {error}</Typography>
+        <Typography color="error">{error}</Typography>
       ) : (
         <>
           <PostForm initialPost={currentPost} />

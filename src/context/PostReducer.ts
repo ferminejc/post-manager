@@ -20,7 +20,7 @@ type Action =
 export const postReducer = (state: PostState, action: Action): PostState => {
   switch (action.type) {
     case 'LOADING':
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: null };
     case 'FETCH_POSTS_SUCCESS':
       return { ...state, loading: false, posts: action.payload };
     case 'FETCH_POSTS_ERROR':
@@ -29,7 +29,7 @@ export const postReducer = (state: PostState, action: Action): PostState => {
     case 'REMOVE_POST_ERROR':
       return { ...state, loading: false, error: action.payload };
     case 'ADD_POST_SUCCESS':
-      return { ...state, loading: false, posts: [action.payload, ...state.posts] }; // Prepend new post
+      return { ...state, loading: false, posts: [action.payload, ...state.posts] };
     case 'EDIT_POST_SUCCESS':
       return {
         ...state,

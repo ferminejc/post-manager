@@ -21,14 +21,14 @@ const PostForm: React.FC<PostFormProps> = ({ initialPost }) => {
     setPost({ ...post, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (post.id) {
-      editPost(dispatch, post);
+      await editPost(dispatch, post);
     } else {
-      addPost(dispatch, post);
+      await addPost(dispatch, post);
     }
-    setPost({ title: '', body: '' });
+    setPost({ title: '', body: '' }); // Clear form after save
   };
 
   return (
