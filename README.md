@@ -34,10 +34,10 @@ This is a simple React application for managing posts using CRUD (Create, Read, 
    cd post-manager
 
 2. Install dependencies:
-   npm install
+   ```npm install```
 
 3. Run the application
-   npm start
+   ```npm start```
    The application will start on http://localhost:3000.
 
 4. Usage
