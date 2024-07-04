@@ -32,7 +32,9 @@ const PostList: React.FC<PostListProps> = ({ onEdit }) => {
           </>
         }>
           <Box display="flex" flexDirection="column">
-            <ListItemText primary={`ID: ${post.id}`} />
+            <Typography variant="body2" color="textSecondary">
+              ID: {post.id}
+            </Typography>
             <ListItemText primary={post.title} secondary={post.body} />
           </Box>
         </ListItem>
